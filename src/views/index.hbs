@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card-header bg-dark">
+        <h5 class="card-title text-white">
+            <i class="far fa-image"></i> Subir una imagen
+        </h5>
+    </div>
+    <div class="card-body">
+        <form action="/image" method="post" enctype="multipart/form-data"> <!--con esta ultima accion le avisamos al form que, a parte de los strings y eso tambien enviaremos una dato algo pesado, en este caso, una imagen. Otra cosa a tomar en cuenta: fijemonos en action, ahi esta la ruta /image. Es importante destacar que esta ruta debe coincidir con la ruta establecida en las rutas. VER routes/index.js ya que cundo se haga clic en el boton de subir, se redigirá a esa ruta. -->
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" name="image" class="custom-file-input" id="inputGroup" aria-describedby="inputGroupFileAddon" required> <!--name debe ser image para coincidir con el atributo de la función single() de multer. VER config.js-->
+                        <label class="custom-file-label" for="inputGroupFile">Elige una foto</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" name="title" class="form-control" placeholder="Título para la imagen" required>
+            </div>
+            <div class="form-group">
+                <textarea name="description" id="" rows="2" class="form-control" placeholder="Descripción para la imagen" required></textarea>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-success">
+                    <i class="fa fa-upload"></i> Subir Imagen
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Que estamos haciendo aqui? por que no ponemos la estrucuta html normal? La cuestión es que en Layouts, hemos puesto nuestra plantilla. Especificamente en el archivo main.hbs. En ese archivo si esta la estructura de un archivo html, pero lo curioso de aqui es que justo en el body tenemos la sintaxis de triple llave y dentro de ella esta 'body'. Esto indica que todo se mantendrá igual en todas las vistas menos el body. Esa parte será la única que cambiará. Por ello también, como la referencia a bootstrap esta en el header, este se aplicará a todos los demás documentos-->
