@@ -6,7 +6,7 @@ helpers.randomImageName = () => {
     for (let i = 0; i<6; i++){
         randomImageName += posibles.charAt(Math.floor(Math.random() * posibles.length));
     }
-    return randomImageName;
+    return randomImageName + '_' + Date.now();
 };
 
 module.exports = helpers;
